@@ -373,7 +373,6 @@ success
 ---
 
 - depuis le navigateur de votre PC, visiter le site web sur `http://IP_VM:9999`
-![Alt text](image.png)
 ip de la vm :
 ```bash
 [user@wanaps ~]$ ip a

@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  chatroom:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8888:8888"
+    environment:
+      - CHAT_PORT=8888
+      - MAX_USERS=10 

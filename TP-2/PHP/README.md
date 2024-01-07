@@ -1,0 +1,44 @@
+# TP2 Commun : Stack PHP
+
+
+# 0. Setup
+
+🌞 **`docker-compose.yml`**
+
+
+[docker-compose.yml](./docker-compose.yml)
+
+```yml
+version: '3'
+
+services:
+  php_apache:
+    image: php:apache
+    volumes:
+      - ./src:/var/www/html
+    ports:
+      - "80:80"
+
+  mysql_db:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: database_du_futur
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    volumes:
+      - ./sql:/docker-entrypoint-initdb.d
+    ports:
+      - "3306:3306"
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      PMA_HOST: mysql_db
+      MYSQL_ROOT_PASSWORD: votre_mot_de_passe_root
+    ports:
+      - "8081:80"
+    depends_on:
+      - mysql_db
+
+```
